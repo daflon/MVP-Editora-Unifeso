@@ -24,8 +24,13 @@
         }
 
         .logo {
-            font-size: 1.5em;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px; /* Ajuste o tamanho conforme necessário */
         }
 
         .buttons {
@@ -94,17 +99,22 @@
 <body>
 
     <header>
-        <div class="logo">Unifeso Editora</div>
+        <div class="logo">
+            <img src="logo.png" alt="Logo Unifeso">
+            <span></span>
+        </div>
         <div class="buttons">
             <button>Sou Editor</button>
             <button>Sou Admin</button>
         </div>
     </header>
 
-    <main>        
+    <main>
+        
         <h1>Bem-vindo à Unifeso Editora</h1>
-        <br />
-        <br />
+        <br/>
+        <p>Conteúdo principal da página.</p>
+        <br/>
         <div class="search-bar">
             <input type="text" placeholder="Pesquisar..." aria-label="Pesquisar">
             <button>Pesquisar</button>
