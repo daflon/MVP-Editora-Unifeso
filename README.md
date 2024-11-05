@@ -6,7 +6,8 @@ Este repositório tem como objetivo facilitar a colaboração entre os integrant
 
 - Charles Daflon dos Anjos
 - Jonathan Silverio
-- Marcos Ruben
+- Marcos
+- Ruben
 
 ## Situação Problema
 
