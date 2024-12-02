@@ -22,6 +22,9 @@ Este repositório tem como objetivo facilitar a colaboração entre os integrant
 
 Escolhemos criar um MVP em forma de protótipo funcional para avaliar de maneira ágil as funcionalidades essenciais e o layout do site. Essa abordagem possibilita obter feedback direto dos usuários e focar nas melhorias mais importantes antes da conclusão do desenvolvimento, assegurando que a versão final da plataforma atenda às demandas da comunidade Unifeso.
 
+Requisitos de sistema
+Serão atendidos neste MVP os requisitos classificados como Prioridade Alta.
+
 ## Execução do projeto
 
 Para rodar o o projeto basta baixar os arquivos em uma pasta e abrir o aula beta.html.
