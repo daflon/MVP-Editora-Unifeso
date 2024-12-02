@@ -13,26 +13,24 @@ Este repositório tem como objetivo facilitar a colaboração entre os integrant
 
 **Editora Unifeso**
 
----
-
 ## Tecnologias Utilizadas
 - **HTML**: Estrutura e organização do conteúdo.
-- **CSS**: Estilização para melhorar a interface e a experiência do usuário.
-- **JavaScript**: Adição de interatividade e funcionalidades dinâmicas na aplicação.
-
----
+- **CSS**: Estilização da interface para melhor experiência do usuário.
+- **JavaScript**: Adicionar interatividade, validações e funcionalidades dinâmicas na aplicação.
 
 ## Tipo de MVP
 
-Defina o tipo de MVP desenvolvido para o projeto.
+Escolhemos criar um MVP em forma de protótipo funcional para avaliar de maneira ágil as funcionalidades essenciais e o layout do site. Essa abordagem possibilita obter feedback direto dos usuários e focar nas melhorias mais importantes antes da conclusão do desenvolvimento, assegurando que a versão final da plataforma atenda às demandas da comunidade Unifeso.
 
-## Objetivo e Benefícios
+## Execução do projeto
 
-Descreva o objetivo principal do MVP e os benefícios esperados.
+Para rodar o o projeto basta baixar os arquivos em uma pasta e abrir o aula beta.html.
 
 ## Público Alvo
 
-Defina o público-alvo para o MVP.
+**Alunos da Unifeso: Procuram uma maneira prática e ágil de acessar publicações acadêmicas para auxiliar em seus estudos e trabalhos de pesquisa.
+**Colaboradores e Pesquisadores: Precisam de uma plataforma funcional para pesquisar, compartilhar e monitorar a produção acadêmica da instituição.
+**Equipe Administrativa da Editora: Encargada de registrar e gerenciar as publicações, assegurando que o conteúdo esteja sempre atualizado e acessível para a comunidade.
 
 ## Dores do Público
 
