@@ -38,4 +38,12 @@ Para rodar o o projeto basta baixar os arquivos em uma pasta e abrir o aula beta
 
 ## Dores do Público
 
-Liste as dores ou necessidades do público-alvo que o MVP visa resolver.
+Busca Ineficiente: Necessidade de um sistema avançado que permita filtrar e encontrar conteúdos com precisão.
+Segurança e Privacidade: Preocupação em garantir a proteção dos dados dos usuários e das publicações.
+Falta de Interatividade: Ausência de ferramentas que permitam comentários e avaliações, reduzindo o engajamento dos usuários.
+Desempenho Elevado: Importância de uma plataforma ágil e eficiente, capaz de atender a um grande número de usuários simultaneamente.
+Gestão de Acessos: Demanda por níveis diferenciados de permissões para organizar e editar publicações de forma segura.
+Acesso Simplificado: Urgência em obter publicações acadêmicas de forma rápida e intuitiva.
+Complexidade no Cadastro: Processo burocrático e pouco prático para inserir novas publicações na plataforma.
+Dificuldade de Descoberta: Obstáculos para localizar e acessar os trabalhos já publicados.
+Identidade Visual: Carência de um design que reflita a essência e os valores da Editora Unifeso.
