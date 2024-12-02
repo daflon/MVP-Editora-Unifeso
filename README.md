@@ -25,7 +25,7 @@ Escolhemos criar um MVP em forma de protótipo funcional para avaliar de maneira
 ## Requisitos de sistema
 
 Serão atendidos neste MVP os requisitos classificados como Prioridade Alta.
-Aesse a planilha
+Acesse a planilha.
 https://docs.google.com/spreadsheets/d/1U37sFgeQ57nmilWCg5M0gregxarz8-ZhhYjXMPwW0A0/edit?usp=sharing
 
 ## Execução do projeto
