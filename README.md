@@ -7,7 +7,7 @@ Este repositório tem como objetivo facilitar a colaboração entre os integrant
 - Charles Daflon dos Anjos
 - Jonathan Silverio
 - Marcos Paulo Gomes Pagayme
-- Ruben
+- Rúben Marcel Alves Teixeira
 
 ## Situação Problema
 
