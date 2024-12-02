@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Pesquisa - Unifeso Editora</title>
+    <link rel="stylesheet" href="beta.css">
+    <script>
+        let resultados = [];
+        let resultadosPorPagina = 4;
+        let paginaAtual = 1;
+        let totalPaginas = 3; // Limitar a 3 páginas
+
+        // Função para gerar resultados fictícios e filtrar pela palavra-chave
+        function gerarResultados() {
+            // Recuperar parâmetros da URL
+            const params = new URLSearchParams(window.location.search);
+            const pesquisaTermo = params.get("pesquisa").toLowerCase(); // Palavra-chave de pesquisa
+            const curso = params.get("curso");
+            const anoConcluicao = params.get("ano");
+
+            // Gerar um número aleatório de TCCs para exibir (por exemplo, 15 resultados)
+            const nomesFicticios = ["Ana Souza", "Carlos Lima", "João Pereira", "Mariana Costa", "Lucas Silva", "Patricia Gomes"];
+            const titulosFicticios = [
+                "Sistemas Distribuídos", 
+                "Inteligência Artificial", 
+                "Redes de Computadores", 
+                "Gestão de Projetos", 
+                "Engenharia de Software", 
+                "Desenvolvimento Web"
+            ];
+
+            // Gerar resultados fictícios e aplicar o filtro pela palavra-chave
+            for (let i = 0; i < 15; i++) {
+                const nomeAluno = nomesFicticios[Math.floor(Math.random() * nomesFicticios.length)];
+                const tituloTCC = titulosFicticios[Math.floor(Math.random() * titulosFicticios.length)];
+                const anoConclusao = anoConcluicao ? anoConcluicao : 2023; // Usar ano de filtro ou 2023
+
+                // Aplicar filtro pela palavra-chave no título
+                if (tituloTCC.toLowerCase().includes(pesquisaTermo)) {
+                    resultados.push({ nomeAluno, tituloTCC, anoConclusao });
+                }
+            }
+
+            // Exibir resultados filtrados
+            exibirResultados();
+        }
+
+        // Função para exibir os resultados com base na página atual
+        function exibirResultados() {
+            // Limitar resultados à página atual
+            const inicio = (paginaAtual - 1) * resultadosPorPagina;
+            const fim = paginaAtual * resultadosPorPagina;
+            const resultadosPagina = resultados.slice(inicio, fim);
+
+            // Exibir resultados na página
+            const resultadosContainer = document.getElementById("resultadosContainer");
+            resultadosContainer.innerHTML = ""; // Limpar resultados anteriores
+
+            if (resultadosPagina.length === 0) {
+                resultadosContainer.innerHTML = "<p>Nenhum resultado encontrado para sua pesquisa.</p>";
+            } else {
+                resultadosPagina.forEach(resultado => {
+                    const item = document.createElement("div");
+                    item.classList.add("resultado-item");
+                    item.innerHTML = `
+                        <h3>${resultado.tituloTCC}</h3>
+                        <p>Por: ${resultado.nomeAluno}</p>
+                        <p>Ano de Conclusão: ${resultado.anoConclusao}</p>
+                        <a href="#" class="download-btn" onclick="baixarTCC('${resultado.tituloTCC}')">Baixar TCC</a>
+                    `;
+                    resultadosContainer.appendChild(item);
+                });
+            }
+
+            // Atualizar a navegação entre as páginas
+            atualizarNavegacao();
+        }
+
+        // Função para atualizar os botões de navegação
+        function atualizarNavegacao() {
+            const navContainer = document.getElementById("navegacao");
+            navContainer.innerHTML = ""; // Limpar navegação anterior
+
+            // Botão "Anterior"
+            if (paginaAtual > 1) {
+                const btnAnterior = document.createElement("button");
+                btnAnterior.innerHTML = "Anterior";
+                btnAnterior.onclick = () => navegarParaPagina(paginaAtual - 1);
+                navContainer.appendChild(btnAnterior);
+            }
+
+            // Botão "Próximo"
+            if (paginaAtual < totalPaginas) {
+                const btnProximo = document.createElement("button");
+                btnProximo.innerHTML = "Próximo";
+                btnProximo.onclick = () => navegarParaPagina(paginaAtual + 1);
+                navContainer.appendChild(btnProximo);
+            }
+        }
+
+        // Função para navegar para uma página específica
+        function navegarParaPagina(numeroPagina) {
+            if (numeroPagina >= 1 && numeroPagina <= totalPaginas) {
+                paginaAtual = numeroPagina;
+                exibirResultados();
+            }
+        }
+
+        // Função para verificar se o usuário está logado
+        function verificarLogin() {
+            const usuarioLogado = localStorage.getItem("nomeUsuario");
+            return usuarioLogado !== null;
+        }
+
+        // Função para simular o download de um arquivo
+        function baixarTCC(titulo) {
+            if (!verificarLogin()) {
+                alert("Você precisa estar logado para realizar o download.");
+                window.location.href = "login.html"; // Redireciona para a página de login
+                return;
+            }
+
+            const nomeArquivo = `${titulo.replace(/\s+/g, '_')}.pdf`; // Substitui espaços por underline no nome do arquivo
+            alert(`O download do TCC '${titulo}' foi iniciado. (Simulação de download)`);
+
+            // Simulação de download (você pode substituir isso por um arquivo real, se necessário)
+            const blob = new Blob([`Conteúdo fictício do TCC: ${titulo}`], { type: 'application/pdf' });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = nomeArquivo;
+            link.click();
+        }
+
+        // Carregar os resultados quando a página for carregada
+        window.onload = gerarResultados;
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Unifeso Editora - Resultados da Pesquisa</h1>
+    </header>
+
+    <main>
+        <div id="pesquisaInfo" class="pesquisa-info"></div>
+        <div id="resultadosContainer" class="resultados-container">
+            <!-- Resultados serão inseridos aqui -->
+        </div>
+
+        <!-- Navegação entre as páginas -->
+        <div id="navegacao" class="navegacao">
+            <!-- Botões de navegação serão inseridos aqui -->
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            Para mandar seu Tcc para analise, envie um email para tcc.unifeso@gmail.com </p>
+        <p>Copyright © 2024. Unifeso</p>
+    </footer>
+
+</body>
+</html>

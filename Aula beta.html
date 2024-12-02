@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unifeso Editora</title>
+    <link rel="stylesheet" href="beta.css">
+</head>
+
+<body>
+    <!-- Cabeçalho com Logo e Menu -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo Unifeso">
+        </div>
+        <h1>Bem-vindo à Unifeso Editora</h1>
+        <div class="menu" id="menuContainer">
+            <button onclick="toggleMenu()" class="menu-button">Menu</button>
+            <div id="dropdown" class="dropdown-content">
+                <a href="login.html">LOGIN</a>
+            </div>
+        </div>
+        <div class="user-info" id="userInfo" style="display: none;">
+            <span id="userName"></span>
+            <button id="logoutButton" onclick="logout()">Logoff</button>
+        </div>
+    </header>
+    
+    
+
+    <!-- Seção de Carrossel de Amostras -->
+    <div class="carrossel-container">
+        <div class="carrossel">
+            <div class="carrossel-item">
+                <img src="logo.png" alt="Imagem 1">
+            </div>
+            <div class="carrossel-item">
+                <img src="logo.png" alt="Imagem 2">
+            </div>
+            <div class="carrossel-item">
+                <img src="logo.png" alt="Imagem 3">
+            </div>
+            <div class="carrossel-item">
+                <img src="logo.png" alt="Imagem 3">
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Seção de Pesquisa -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Pesquisar... TCC, Curso, Ano" aria-label="Pesquisar" onclick="exibirFiltros()">
+        <button onclick="realizarPesquisa()">Pesquisar</button>
+    </div>
+
+    <!-- Filtros (ocultos inicialmente) -->
+    <div id="filtroContainer" style="display: none;">
+        <h3>Filtros</h3>
+        <form id="filtroForm">
+            <label for="curso">Curso:</label>
+            <select id="curso" name="curso">
+                <option value="">Selecione</option>
+                <option value="curso1">Análise e Desenvolvimento de Sistemas</option>
+                <option value="curso2">Ciência da Computação</option>
+                <option value="curso3">Engenharia Civil</option>
+            </select>
+            <br><br>
+
+            <label for="anoConcluicao">Ano de Conclusão:</label>
+            <select id="anoConcluicao" name="anoConcluicao">
+                <option value="">Selecione um ano</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+            </select>
+            <br><br>
+
+            <button type="button" onclick="aplicarFiltros()">Aplicar Filtros</button>
+        </form>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>
+            Para mandar seu Tcc para analise, envie um email para tcc.unifeso@gmail.com </p>
+        <p>Copyright © 2024. Unifeso</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nomeUsuario = localStorage.getItem("nomeUsuario");
+            if (nomeUsuario) {
+                document.getElementById("userName").textContent = nomeUsuario;
+                document.getElementById("menuContainer").style.display = 'none';
+                document.getElementById("userInfo").style.display = 'flex';
+            }
+        });
+    
+        function toggleMenu() {
+            const menu = document.getElementById("dropdown");
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+    
+        window.onclick = function(event) {
+            const menu = document.getElementById("dropdown");
+            if (!event.target.matches('.menu-button') && !event.target.matches('#dropdown a')) {
+                menu.style.display = "none";
+            }
+        };
+    
+        function exibirFiltros() {
+            const filtroContainer = document.getElementById("filtroContainer");
+            filtroContainer.style.display = filtroContainer.style.display === "block" ? "none" : "block";
+        }
+    
+        function aplicarFiltros() {
+            const curso = document.getElementById("curso").value;
+            const anoConcluicao = document.getElementById("anoConcluicao").value;
+    
+            alert(`Filtros aplicados: Curso - ${curso || 'Nenhum'}, Ano de Conclusão - ${anoConcluicao || 'Nenhum'}`);
+        }
+    
+        function realizarPesquisa() {
+            const termoPesquisa = document.getElementById("searchInput").value;
+    
+            let url = `pesquisa.html?pesquisa=${encodeURIComponent(termoPesquisa)}`;
+            const curso = document.getElementById("curso").value;
+            const anoConcluicao = document.getElementById("anoConcluicao").value;
+    
+            if (curso) {
+                url += `&curso=${encodeURIComponent(curso)}`;
+            }
+            if (anoConcluicao) {
+                url += `&ano=${encodeURIComponent(anoConcluicao)}`;
+            }
+    
+            window.location.href = url;
+        }
+    
+        function logout() {
+            localStorage.removeItem("nomeUsuario");
+            alert("Você foi desconectado.");
+            window.location.href = "login.html";
+        }
+    </script>
+    
+</body>
+
+</html>

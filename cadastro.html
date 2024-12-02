@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Unifeso Editora</title>
+    <link rel="stylesheet" href="cadastro.css"> <!-- Link para o arquivo CSS, se houver -->
+    <script>
+        function validarCadastro(event) {
+            event.preventDefault();
+    
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const senha = document.getElementById("password").value;
+            const confirmacaoSenha = document.getElementById("confirmPassword").value;
+    
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailRegex.test(email)) {
+                alert("Por favor, insira um email válido.");
+                return false;
+            }
+    
+            if (senha.length < 8) {
+                alert("A senha deve ter pelo menos 8 caracteres.");
+                return false;
+            }
+    
+            if (senha !== confirmacaoSenha) {
+                alert("As senhas não correspondem. Por favor, verifique.");
+                return false;
+            }
+    
+            // Salvar dados no localStorage
+            const usuario = { username, email, senha };
+            localStorage.setItem("usuarioCadastrado", JSON.stringify(usuario));
+    
+            alert("Cadastro realizado com sucesso!");
+            window.location.href = "login.html"; // Redirecionar para o login
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Unifeso Editora - Cadastro</h1>
+    </header>
+
+    <main>
+        <div class="signup-container">
+            <h2>Crie sua conta</h2>
+            <form id="signupForm" onsubmit="validarCadastro(event)">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                <br><br>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                <br><br>
+
+                <label for="confirmPassword">Confirme a Senha:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirme sua senha" required>
+                <br><br>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <!-- Link para a página de login caso já tenha uma conta -->
+            <p>Já tem uma conta? <a href="login.html">Faça login aqui</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            Para mandar seu Tcc para analise, envie um email para tcc.unifeso@gmail.com </p>
+        <p>Copyright © 2024. Unifeso</p>
+    </footer>
+</body>
+</html>
