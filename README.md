@@ -28,9 +28,9 @@ Para rodar o o projeto basta baixar os arquivos em uma pasta e abrir o aula beta
 
 ## Público Alvo
 
-**Alunos da Unifeso: Procuram uma maneira prática e ágil de acessar publicações acadêmicas para auxiliar em seus estudos e trabalhos de pesquisa.
-**Colaboradores e Pesquisadores: Precisam de uma plataforma funcional para pesquisar, compartilhar e monitorar a produção acadêmica da instituição.
-**Equipe Administrativa da Editora: Encargada de registrar e gerenciar as publicações, assegurando que o conteúdo esteja sempre atualizado e acessível para a comunidade.
+- **Alunos da Unifeso: Procuram uma maneira prática e ágil de acessar publicações acadêmicas para auxiliar em seus estudos e trabalhos de pesquisa.
+- **Colaboradores e Pesquisadores: Precisam de uma plataforma funcional para pesquisar, compartilhar e monitorar a produção acadêmica da instituição.
+- **Equipe Administrativa da Editora: Encargada de registrar e gerenciar as publicações, assegurando que o conteúdo esteja sempre atualizado e acessível para a comunidade.
 
 ## Dores do Público
 
